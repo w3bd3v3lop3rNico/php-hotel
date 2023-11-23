@@ -47,15 +47,55 @@
 </head>
 <body>
     
-    <div class="container">
-    <?php
-        foreach($hotels as $hotel) {
-        // var_dump($hotel['name']);
-    ?>
-        <p><?php echo $hotel['name']?></p>
-    <?php
-    }
-     ?>
+    <div class="container-fluid">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+        </select>
+
+        <table class="table text-start">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Parking</th>
+                    <th scope="col">Vote</th>
+                    <th scope="col">distance_to_center</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            <?php
+                foreach($hotels as $hotel) {
+                    // var_dump($hotel['name']);
+                    // foreach($hotel as $key=>$value)
+                    // var_dump($value)
+            ?>
+            <tr>
+                <td><?php echo $hotel['name'] ?></th>
+                <td><?php echo $hotel['description']?></td>
+                <?php 
+                    if($hotel['parking'] === true) {
+                ?>
+                    <td>
+                        <?php echo 'si'?>
+                    </td>
+                <?php 
+                    } else { 
+                ?>
+                    <td>
+                        <?php echo 'no'; ?>
+                    </td>
+                <?php
+                    }; 
+                ?>
+                <td><?php echo $hotel['vote']?></td>
+                <td><?php echo $hotel['distance_to_center']?></td>
+            </tr>
+            
+            <?php } ?>
+            </tbody>
+        </table>
     </div>
      
     
